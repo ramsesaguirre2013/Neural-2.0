@@ -49,9 +49,9 @@
 							//Validamos que sea la cantidad iguaL o mayor que 1
 							if($Cantidad>=1) {
 								//recorremos el array correspondiente
-								for ($i=0; $i<$Cantidad; $i++) {
+								for ($invNeural=0; $invNeural<$Cantidad; $invNeural++) {
 									//Validamos el cambio de valores
-									if($ArrayVistas['Asignacion_Vistas'][$Tipo][$i] == '{% Nombre_Archivo %}') {
+									if($ArrayVistas['Asignacion_Vistas'][$Tipo][$invNeural] == '{% Nombre_Archivo %}') {
 										//Generamos el Path del Archivo
 										$PathArchivo = __SysNeuralFileRootModulos__.$Modulo.$Vistas.$Archivo.'.php';
 										//Validamos si Existe el Archivo
@@ -76,9 +76,9 @@
 									}
 									else {
 										//Generamos el Path del Archivo
-										$PathArchivo = __SysNeuralFileRootModulos__.$Modulo.$Vistas.$ArrayVistas['Asignacion_Vistas'][$Tipo][$i];
+										$PathArchivo = __SysNeuralFileRootModulos__.$Modulo.$Vistas.$ArrayVistas['Asignacion_Vistas'][$Tipo][$invNeural];
 										//Generamos la Variable 
-										$NombreArchivo = $ArrayVistas['Asignacion_Vistas'][$Tipo][$i];
+										$NombreArchivo = $ArrayVistas['Asignacion_Vistas'][$Tipo][$invNeural];
 										//Validamos si existe el archivo
 										if(file_exists($PathArchivo)) {
 											//incluimos el archivo
@@ -146,9 +146,9 @@
 							//Validamos que sea la cantidad iguaL o mayor que 1
 							if($Cantidad>=1) {
 								//recorremos el array correspondiente
-								for ($i=0; $i<$Cantidad; $i++) {
+								for ($invNeural=0; $invNeural<$Cantidad; $invNeural++) {
 									//Validamos el cambio de valores
-									if($ArrayVistas['Asignacion_Vistas'][$Tipo][$i] == '{% Nombre_Archivo %}') {
+									if($ArrayVistas['Asignacion_Vistas'][$Tipo][$invNeural] == '{% Nombre_Archivo %}') {
 										//Generamos el Path del Archivo
 										$PathArchivo = __SysNeuralFileRootModulos__.$Modulo.$Vistas.$Archivo.'.php';
 										//Validamos si Existe el Archivo
@@ -173,9 +173,9 @@
 									}
 									else {
 										//Generamos el Path del Archivo
-										$PathArchivo = __SysNeuralFileRootModulos__.$Modulo.$Vistas.$ArrayVistas['Asignacion_Vistas'][$Tipo][$i];
+										$PathArchivo = __SysNeuralFileRootModulos__.$Modulo.$Vistas.$ArrayVistas['Asignacion_Vistas'][$Tipo][$invNeural];
 										//Generamos la Variable 
-										$NombreArchivo = $ArrayVistas['Asignacion_Vistas'][$Tipo][$i];
+										$NombreArchivo = $ArrayVistas['Asignacion_Vistas'][$Tipo][$invNeural];
 										//Validamos si existe el archivo
 										if(file_exists($PathArchivo)) {
 											//incluimos el archivo
