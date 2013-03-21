@@ -71,7 +71,7 @@ Deny from env=bad_bot
 # Descomentar las lineas siguientes para entornos de produccion
 #
 
-#ExpiresActive on
+#ExpiresActive On
 #ExpiresByType application/javascript "access plus 7 day"
 #ExpiresByType image/jpg "access plus 7 day"
 #ExpiresByType image/jpeg "access plus 7 day"

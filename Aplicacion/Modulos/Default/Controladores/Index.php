@@ -27,6 +27,7 @@
 		 */
 		public function Index() {
 			
-			echo 'Este es el Index de la Aplicación';
+			//Generamos la vista correspondiente del Inicio
+			$this->Vista->GenerarVista('Index/Index');
 		}
 	}
