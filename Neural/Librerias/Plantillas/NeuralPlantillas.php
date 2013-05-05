@@ -14,7 +14,7 @@
 	 * @version 2.0
 	 * 
 	 */
-	class NeuralPlantillas {
+	class NeuralPlantillasTwig {
 		
 		/**
 		 * static $Codificacion = 'UTF-8';
