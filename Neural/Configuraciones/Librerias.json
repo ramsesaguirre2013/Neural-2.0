@@ -18,6 +18,7 @@
 	"MVC Controlador":		"MVC/Controlador.php",
 	"MVC Modelo":			"MVC/Modelo.php",
 	"MVC Vista":			"MVC/Vista.php",
+	"Plantillas Twig":		"Plantillas/NeuralPlantillas.php",
 	"Sesiones":				"Sesiones/NeuralSesiones.php",
 	"Adminitrador Scripts":	"ScriptAdmin/ScriptAdmin.php",
 	"Bootstrap":			"Neural/SysNeuralBootstrap.php"
