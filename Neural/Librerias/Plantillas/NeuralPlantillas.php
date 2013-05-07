@@ -124,10 +124,10 @@
 						$Twig->addGlobal('NeuralRutasApp', array(
 							'RutaURL' => __NeuralUrlRoot__.$Rutas['Modulo'].'/', 
 							'RutaURLBase' => __NeuralUrlRoot__, 
-							'RutaPublico' => __NeuralUrlRoot__.$Rutas['Carpeta_Public'].'/',
-							'RutaJs' => __NeuralUrlRoot__.$Rutas['Carpeta_Js'].'/', 
-							'RutaImagenes' => __NeuralUrlRoot__.$Rutas['Carpeta_Imagenes'].'/', 
-							'RutaCss' => __NeuralUrlRoot__.$Rutas['Carpeta_Css'].'/'
+							'RutaPublico' => __NeuralUrlRoot__.'Public/'.$Rutas['Carpeta_Public'].'/',
+							'RutaJs' => __NeuralUrlRoot__.'Public/'.$Rutas['Carpeta_Public'].'/'.$Rutas['Carpeta_Js'].'/', 
+							'RutaImagenes' => __NeuralUrlRoot__.'Public/'.$Rutas['Carpeta_Public'].'/'.$Rutas['Carpeta_Imagenes'].'/', 
+							'RutaCss' => __NeuralUrlRoot__.'Public/'.$Rutas['Carpeta_Public'].'/'.$Rutas['Carpeta_Css'].'/'
 						));
 						return $Twig->render($Plantilla, $ParametrosPlantilla);
 					}
@@ -138,10 +138,10 @@
 						$Twig->addGlobal('NeuralRutasApp', array(
 							'RutaURL' => __NeuralUrlRoot__.$Rutas['Modulo'].'/', 
 							'RutaURLBase' => __NeuralUrlRoot__, 
-							'RutaPublico' => __NeuralUrlRoot__.$Rutas['Carpeta_Public'].'/',
-							'RutaJs' => __NeuralUrlRoot__.$Rutas['Carpeta_Js'].'/', 
-							'RutaImagenes' => __NeuralUrlRoot__.$Rutas['Carpeta_Imagenes'].'/', 
-							'RutaCss' => __NeuralUrlRoot__.$Rutas['Carpeta_Css'].'/'
+							'RutaPublico' => __NeuralUrlRoot__.'Public/'.$Rutas['Carpeta_Public'].'/',
+							'RutaJs' => __NeuralUrlRoot__.'Public/'.$Rutas['Carpeta_Public'].'/'.$Rutas['Carpeta_Js'].'/', 
+							'RutaImagenes' => __NeuralUrlRoot__.'Public/'.$Rutas['Carpeta_Public'].'/'.$Rutas['Carpeta_Imagenes'].'/', 
+							'RutaCss' => __NeuralUrlRoot__.'Public/'.$Rutas['Carpeta_Public'].'/'.$Rutas['Carpeta_Css'].'/'
 						));
 						return $Twig->render($Plantilla, $ParametrosPlantilla);
 					}
