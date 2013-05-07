@@ -112,6 +112,7 @@
 				
 				$ParametrosPlantilla = self::OrganizarParametros();
 				$CarpetaAplicacion = self::ValidarConfiguracionAplicacion($Aplicacion);
+				$Rutas = self::LeerArchivoRutas($CarpetaAplicacion['Carpeta'], $CarpetaAplicacion['Configuracion']);
 				if(file_exists(__SysNeuralFileRootModulos__.$CarpetaAplicacion['Carpeta'].$CarpetaAplicacion['Vistas'].$Plantilla)) {
 					
 					self::ActivarVendor();
@@ -120,12 +121,28 @@
 						
 						$Cargador = new Twig_Loader_Filesystem(__SysNeuralFileRootModulos__.$CarpetaAplicacion['Carpeta'].$CarpetaAplicacion['Vistas']);
 						$Twig = new Twig_Environment($Cargador, array('charset' => self::$Codificacion, 'debug' => self::$Depuracion, 'cache' => __SysNeuralFileRootCache__));
+						$Twig->addGlobal('NeuralRutasApp', array(
+							'RutaURL' => __NeuralUrlRoot__.$Rutas['Modulo'].'/', 
+							'RutaURLBase' => __NeuralUrlRoot__, 
+							'RutaPublico' => __NeuralUrlRoot__.$Rutas['Carpeta_Public'].'/',
+							'RutaJs' => __NeuralUrlRoot__.$Rutas['Carpeta_Js'].'/', 
+							'RutaImagenes' => __NeuralUrlRoot__.$Rutas['Carpeta_Imagenes'].'/', 
+							'RutaCss' => __NeuralUrlRoot__.$Rutas['Carpeta_Css'].'/'
+						));
 						return $Twig->render($Plantilla, $ParametrosPlantilla);
 					}
 					else {
 						
 						$Cargador = new Twig_Loader_Filesystem(__SysNeuralFileRootModulos__.$CarpetaAplicacion['Carpeta'].$CarpetaAplicacion['Vistas']);
 						$Twig = new Twig_Environment($Cargador, array('charset' => self::$Codificacion, 'debug' => self::$Depuracion));
+						$Twig->addGlobal('NeuralRutasApp', array(
+							'RutaURL' => __NeuralUrlRoot__.$Rutas['Modulo'].'/', 
+							'RutaURLBase' => __NeuralUrlRoot__, 
+							'RutaPublico' => __NeuralUrlRoot__.$Rutas['Carpeta_Public'].'/',
+							'RutaJs' => __NeuralUrlRoot__.$Rutas['Carpeta_Js'].'/', 
+							'RutaImagenes' => __NeuralUrlRoot__.$Rutas['Carpeta_Imagenes'].'/', 
+							'RutaCss' => __NeuralUrlRoot__.$Rutas['Carpeta_Css'].'/'
+						));
 						return $Twig->render($Plantilla, $ParametrosPlantilla);
 					}
 				}
@@ -135,6 +152,20 @@
 			}
 			else {
 				exit('No Se Ha Ingresado Una Plantilla Valida');
+			}
+		}
+		
+		/**
+		 * Metodo Privado
+		 * LeerArchivoRutas($Carpeta = false, $Configuracion = false)
+		 * 
+		 * Lee el archivo de configuracion de rutas
+		 * */
+		private function LeerArchivoRutas($Carpeta = false, $Configuracion = false) {
+			
+			if($Carpeta == true AND $Configuracion == true) {
+				
+				return SysNeuralNucleo::LeerArchivosConfiguracionRutasModulo($Carpeta, $Configuracion);
 			}
 		}
 		
