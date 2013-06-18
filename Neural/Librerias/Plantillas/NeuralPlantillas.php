@@ -52,9 +52,7 @@
 			
 			$ListadoVendors = SysNeuralNucleo::CargarArchivoJsonConfiguracion('ConfigVendors.json');
 			if($ListadoVendors['Twig']['Activo'] == false) {
-				
 				if(file_exists(__SysNeuralFileRootVendors__.'Twig/Autoloader.php') == true) {
-					
 					require_once __SysNeuralFileRootVendors__.'Twig/Autoloader.php';
 				}
 				else {
@@ -74,8 +72,21 @@
 		public function ParametrosEtiquetas($Etiqueta = false, $Valor = false) {
 			
 			if($Etiqueta == true AND $Valor == true) {
-				
 				$this->Parametro[$Etiqueta] = $Valor;
+			}
+		}
+		
+		/**
+		 * Metodo Publico
+		 * AgregarFuncionAnonima($NombreFuncion = false, $Funcion = false)
+		 * 
+		 * Metodo en el cual se pueden pasar funciones anonimas a la plantilla
+		 * @param $NombreFuncion: Nombre que tendra la funcion
+		 * @Funcion $Funcion: Funcion anonima que se ejecutara
+		 */
+		public function AgregarFuncionAnonima($NombreFuncion = false, $Funcion = false) {
+			if($NombreFuncion == true AND $Funcion == true) {
+				$this->FuncionAnonima[$NombreFuncion] = $Funcion;
 			}
 		}
 		
@@ -91,7 +102,6 @@
 		public function ParametrosEtiquetasArray($Array = false) {
 			
 			if($Array == true AND  is_array($Array) == true) {
-				
 				$this->ParametroArray = $Array;
 			}
 		}
@@ -129,6 +139,13 @@
 							'RutaImagenes' => __NeuralUrlRoot__.'Public/'.$Rutas['Carpeta_Public'].'/'.$Rutas['Carpeta_Imagenes'].'/', 
 							'RutaCss' => __NeuralUrlRoot__.'Public/'.$Rutas['Carpeta_Public'].'/'.$Rutas['Carpeta_Css'].'/'
 						));
+						
+						if(isset($this->FuncionAnonima) == true) {
+							foreach ($this->FuncionAnonima AS $Nombre => $Funcion) {
+								$Filtro = new Twig_SimpleFilter($Nombre, $Funcion);
+								$Twig->addFilter($Filtro);
+							}
+						}
 						return $Twig->render($Plantilla, $ParametrosPlantilla);
 					}
 					else {
@@ -143,6 +160,13 @@
 							'RutaImagenes' => __NeuralUrlRoot__.'Public/'.$Rutas['Carpeta_Public'].'/'.$Rutas['Carpeta_Imagenes'].'/', 
 							'RutaCss' => __NeuralUrlRoot__.'Public/'.$Rutas['Carpeta_Public'].'/'.$Rutas['Carpeta_Css'].'/'
 						));
+						
+						if(isset($this->FuncionAnonima) == true) {
+							foreach ($this->FuncionAnonima AS $Nombre => $Funcion) {
+								$Filtro = new Twig_SimpleFilter($Nombre, $Funcion);
+								$Twig->addFilter($Filtro);
+							}
+						}
 						return $Twig->render($Plantilla, $ParametrosPlantilla);
 					}
 				}
@@ -164,7 +188,6 @@
 		private function LeerArchivoRutas($Carpeta = false, $Configuracion = false) {
 			
 			if($Carpeta == true AND $Configuracion == true) {
-				
 				return SysNeuralNucleo::LeerArchivosConfiguracionRutasModulo($Carpeta, $Configuracion);
 			}
 		}
